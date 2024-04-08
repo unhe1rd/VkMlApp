@@ -13,6 +13,7 @@ final class MainViewController: UIViewController {
     
     private let mainHeaderLaber = UILabel()
     private let mainImageView = UIImageView()
+    private let faqButton = UIButton()
     
     init(output: MainViewOutput) {
         self.output = output
@@ -37,7 +38,19 @@ private extension MainViewController {
         view.backgroundColor = Constants.backgroundColor
         
         setupMainHeaderView()
+        setupFaqButton()
         setupMainImageView()
+    }
+    
+    func setupFaqButton(){
+        view.addSubview(faqButton)
+        faqButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        
+        NSLayoutConstraint.activate([
+            faqButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            faqButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
+            faqButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -16),
+        ])
     }
     
     func setupMainHeaderView(){
@@ -59,8 +72,6 @@ private extension MainViewController {
         mainImageView.layer.cornerRadius = 16
         mainImageView.tintColor = Constants.imageColor
         mainImageView.backgroundColor = Constants.viewColor
-        
-        mainImageView.image = UIImage(named: "icon")
         mainImageView.alpha = 0.7
         
         let imageViewSize = view.frame.width - 32

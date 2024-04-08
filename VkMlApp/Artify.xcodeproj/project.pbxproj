@@ -21,6 +21,7 @@
 		B4F588F92BC3FC430094E7CC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588F82BC3FC430094E7CC /* MainViewController.swift */; };
 		B4F588FB2BC3FC7E0094E7CC /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588FA2BC3FC7E0094E7CC /* MainPresenter.swift */; };
 		B4F588FD2BC403ED0094E7CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588FC2BC403ED0094E7CC /* Constants.swift */; };
+		B4F589002BC412830094E7CC /* AnimeGANv2_512.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4F588FF2BC412830094E7CC /* AnimeGANv2_512.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B4F588F82BC3FC430094E7CC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B4F588FA2BC3FC7E0094E7CC /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		B4F588FC2BC403ED0094E7CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B4F588FF2BC412830094E7CC /* AnimeGANv2_512.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AnimeGANv2_512.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		B4F588B62BC3F13B0094E7CC /* VkMlApp */ = {
 			isa = PBXGroup;
 			children = (
+				B4F588FE2BC412670094E7CC /* Ml */,
 				B4F588E82BC3F1DE0094E7CC /* Application */,
 				B4F588E92BC3F7CE0094E7CC /* Modules */,
 				B4F588E72BC3F1D20094E7CC /* Supporting Files */,
@@ -204,6 +207,14 @@
 				B4F588F42BC3FBC50094E7CC /* MainInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		B4F588FE2BC412670094E7CC /* Ml */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588FF2BC412830094E7CC /* AnimeGANv2_512.mlmodel */,
+			);
+			path = Ml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 				B4F588B82BC3F13B0094E7CC /* AppDelegate.swift in Sources */,
 				B4F588FB2BC3FC7E0094E7CC /* MainPresenter.swift in Sources */,
 				B4F588F02BC3F85A0094E7CC /* MainAssembly.swift in Sources */,
+				B4F589002BC412830094E7CC /* AnimeGANv2_512.mlmodel in Sources */,
 				B4F588F22BC3F8700094E7CC /* MainProtocols.swift in Sources */,
 				B4F588BA2BC3F13B0094E7CC /* SceneDelegate.swift in Sources */,
 				B4F588F52BC3FBC50094E7CC /* MainInteractor.swift in Sources */,
