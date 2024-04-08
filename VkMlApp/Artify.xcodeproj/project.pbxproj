@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		B4F588B82BC3F13B0094E7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588B72BC3F13B0094E7CC /* AppDelegate.swift */; };
 		B4F588BA2BC3F13B0094E7CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588B92BC3F13B0094E7CC /* SceneDelegate.swift */; };
-		B4F588BC2BC3F13B0094E7CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588BB2BC3F13B0094E7CC /* ViewController.swift */; };
 		B4F588C12BC3F13C0094E7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F588C02BC3F13C0094E7CC /* Assets.xcassets */; };
 		B4F588C42BC3F13C0094E7CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4F588C22BC3F13C0094E7CC /* LaunchScreen.storyboard */; };
 		B4F588CF2BC3F13C0094E7CC /* VkMlAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588CE2BC3F13C0094E7CC /* VkMlAppTests.swift */; };
 		B4F588D92BC3F13C0094E7CC /* VkMlAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588D82BC3F13C0094E7CC /* VkMlAppUITests.swift */; };
 		B4F588DB2BC3F13C0094E7CC /* VkMlAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588DA2BC3F13C0094E7CC /* VkMlAppUITestsLaunchTests.swift */; };
+		B4F588F02BC3F85A0094E7CC /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588EF2BC3F85A0094E7CC /* MainAssembly.swift */; };
+		B4F588F22BC3F8700094E7CC /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588F12BC3F8700094E7CC /* MainProtocols.swift */; };
+		B4F588F52BC3FBC50094E7CC /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588F42BC3FBC50094E7CC /* MainInteractor.swift */; };
+		B4F588F72BC3FC0D0094E7CC /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588F62BC3FC0D0094E7CC /* MainRouter.swift */; };
+		B4F588F92BC3FC430094E7CC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588F82BC3FC430094E7CC /* MainViewController.swift */; };
+		B4F588FB2BC3FC7E0094E7CC /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588FA2BC3FC7E0094E7CC /* MainPresenter.swift */; };
+		B4F588FD2BC403ED0094E7CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F588FC2BC403ED0094E7CC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +41,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B4F588B42BC3F13B0094E7CC /* VkMlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkMlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F588B42BC3F13B0094E7CC /* Artify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F588B72BC3F13B0094E7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F588B92BC3F13B0094E7CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4F588BB2BC3F13B0094E7CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4F588C02BC3F13C0094E7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4F588C32BC3F13C0094E7CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4F588C52BC3F13C0094E7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4F588CA2BC3F13C0094E7CC /* VkMlAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VkMlAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F588CA2BC3F13C0094E7CC /* ArtifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F588CE2BC3F13C0094E7CC /* VkMlAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkMlAppTests.swift; sourceTree = "<group>"; };
-		B4F588D42BC3F13C0094E7CC /* VkMlAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VkMlAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F588D42BC3F13C0094E7CC /* ArtifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F588D82BC3F13C0094E7CC /* VkMlAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkMlAppUITests.swift; sourceTree = "<group>"; };
 		B4F588DA2BC3F13C0094E7CC /* VkMlAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkMlAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B4F588EF2BC3F85A0094E7CC /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		B4F588F12BC3F8700094E7CC /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
+		B4F588F42BC3FBC50094E7CC /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		B4F588F62BC3FC0D0094E7CC /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		B4F588F82BC3FC430094E7CC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B4F588FA2BC3FC7E0094E7CC /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		B4F588FC2BC403ED0094E7CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +99,9 @@
 		B4F588B52BC3F13B0094E7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B4F588B42BC3F13B0094E7CC /* VkMlApp.app */,
-				B4F588CA2BC3F13C0094E7CC /* VkMlAppTests.xctest */,
-				B4F588D42BC3F13C0094E7CC /* VkMlAppUITests.xctest */,
+				B4F588B42BC3F13B0094E7CC /* Artify.app */,
+				B4F588CA2BC3F13C0094E7CC /* ArtifyTests.xctest */,
+				B4F588D42BC3F13C0094E7CC /* ArtifyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F588E82BC3F1DE0094E7CC /* Application */,
-				B4F588BB2BC3F13B0094E7CC /* ViewController.swift */,
+				B4F588E92BC3F7CE0094E7CC /* Modules */,
 				B4F588E72BC3F1D20094E7CC /* Supporting Files */,
 			);
 			path = VkMlApp;
@@ -127,6 +139,7 @@
 				B4F588C22BC3F13C0094E7CC /* LaunchScreen.storyboard */,
 				B4F588C02BC3F13C0094E7CC /* Assets.xcassets */,
 				B4F588C52BC3F13C0094E7CC /* Info.plist */,
+				B4F588FC2BC403ED0094E7CC /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,12 +153,65 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		B4F588E92BC3F7CE0094E7CC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588EA2BC3F7DA0094E7CC /* MainModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B4F588EA2BC3F7DA0094E7CC /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588ED2BC3F8240094E7CC /* ViewController */,
+				B4F588EE2BC3F8310094E7CC /* Interactor */,
+				B4F588EB2BC3F7E40094E7CC /* Presenter */,
+				B4F588EC2BC3F80F0094E7CC /* Router */,
+				B4F588EF2BC3F85A0094E7CC /* MainAssembly.swift */,
+				B4F588F12BC3F8700094E7CC /* MainProtocols.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		B4F588EB2BC3F7E40094E7CC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588FA2BC3FC7E0094E7CC /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B4F588EC2BC3F80F0094E7CC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588F62BC3FC0D0094E7CC /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B4F588ED2BC3F8240094E7CC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588F82BC3FC430094E7CC /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B4F588EE2BC3F8310094E7CC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B4F588F42BC3FBC50094E7CC /* MainInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B4F588B32BC3F13B0094E7CC /* VkMlApp */ = {
+		B4F588B32BC3F13B0094E7CC /* Artify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4F588DE2BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlApp" */;
+			buildConfigurationList = B4F588DE2BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "Artify" */;
 			buildPhases = (
 				B4F588B02BC3F13B0094E7CC /* Sources */,
 				B4F588B12BC3F13B0094E7CC /* Frameworks */,
@@ -155,14 +221,14 @@
 			);
 			dependencies = (
 			);
-			name = VkMlApp;
+			name = Artify;
 			productName = VkMlApp;
-			productReference = B4F588B42BC3F13B0094E7CC /* VkMlApp.app */;
+			productReference = B4F588B42BC3F13B0094E7CC /* Artify.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B4F588C92BC3F13C0094E7CC /* VkMlAppTests */ = {
+		B4F588C92BC3F13C0094E7CC /* ArtifyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4F588E12BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlAppTests" */;
+			buildConfigurationList = B4F588E12BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "ArtifyTests" */;
 			buildPhases = (
 				B4F588C62BC3F13C0094E7CC /* Sources */,
 				B4F588C72BC3F13C0094E7CC /* Frameworks */,
@@ -173,14 +239,14 @@
 			dependencies = (
 				B4F588CC2BC3F13C0094E7CC /* PBXTargetDependency */,
 			);
-			name = VkMlAppTests;
+			name = ArtifyTests;
 			productName = VkMlAppTests;
-			productReference = B4F588CA2BC3F13C0094E7CC /* VkMlAppTests.xctest */;
+			productReference = B4F588CA2BC3F13C0094E7CC /* ArtifyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B4F588D32BC3F13C0094E7CC /* VkMlAppUITests */ = {
+		B4F588D32BC3F13C0094E7CC /* ArtifyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B4F588E42BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlAppUITests" */;
+			buildConfigurationList = B4F588E42BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "ArtifyUITests" */;
 			buildPhases = (
 				B4F588D02BC3F13C0094E7CC /* Sources */,
 				B4F588D12BC3F13C0094E7CC /* Frameworks */,
@@ -191,9 +257,9 @@
 			dependencies = (
 				B4F588D62BC3F13C0094E7CC /* PBXTargetDependency */,
 			);
-			name = VkMlAppUITests;
+			name = ArtifyUITests;
 			productName = VkMlAppUITests;
-			productReference = B4F588D42BC3F13C0094E7CC /* VkMlAppUITests.xctest */;
+			productReference = B4F588D42BC3F13C0094E7CC /* ArtifyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B4F588AF2BC3F13B0094E7CC /* Build configuration list for PBXProject "VkMlApp" */;
+			buildConfigurationList = B4F588AF2BC3F13B0094E7CC /* Build configuration list for PBXProject "Artify" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -232,9 +298,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B4F588B32BC3F13B0094E7CC /* VkMlApp */,
-				B4F588C92BC3F13C0094E7CC /* VkMlAppTests */,
-				B4F588D32BC3F13C0094E7CC /* VkMlAppUITests */,
+				B4F588B32BC3F13B0094E7CC /* Artify */,
+				B4F588C92BC3F13C0094E7CC /* ArtifyTests */,
+				B4F588D32BC3F13C0094E7CC /* ArtifyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,9 +336,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F588BC2BC3F13B0094E7CC /* ViewController.swift in Sources */,
+				B4F588F92BC3FC430094E7CC /* MainViewController.swift in Sources */,
+				B4F588F72BC3FC0D0094E7CC /* MainRouter.swift in Sources */,
 				B4F588B82BC3F13B0094E7CC /* AppDelegate.swift in Sources */,
+				B4F588FB2BC3FC7E0094E7CC /* MainPresenter.swift in Sources */,
+				B4F588F02BC3F85A0094E7CC /* MainAssembly.swift in Sources */,
+				B4F588F22BC3F8700094E7CC /* MainProtocols.swift in Sources */,
 				B4F588BA2BC3F13B0094E7CC /* SceneDelegate.swift in Sources */,
+				B4F588F52BC3FBC50094E7CC /* MainInteractor.swift in Sources */,
+				B4F588FD2BC403ED0094E7CC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +370,12 @@
 /* Begin PBXTargetDependency section */
 		B4F588CC2BC3F13C0094E7CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B4F588B32BC3F13B0094E7CC /* VkMlApp */;
+			target = B4F588B32BC3F13B0094E7CC /* Artify */;
 			targetProxy = B4F588CB2BC3F13C0094E7CC /* PBXContainerItemProxy */;
 		};
 		B4F588D62BC3F13C0094E7CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B4F588B32BC3F13B0094E7CC /* VkMlApp */;
+			target = B4F588B32BC3F13B0094E7CC /* Artify */;
 			targetProxy = B4F588D52BC3F13C0094E7CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -453,12 +525,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = VkEdTeam.VkMlApp;
+				PRODUCT_BUNDLE_IDENTIFIER = VkEdTeam.Artify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -480,12 +553,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = VkEdTeam.VkMlApp;
+				PRODUCT_BUNDLE_IDENTIFIER = VkEdTeam.Artify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -509,7 +583,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VkMlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VkMlApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Artify";
 			};
 			name = Debug;
 		};
@@ -529,7 +603,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VkMlApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VkMlApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Artify";
 			};
 			name = Release;
 		};
@@ -572,7 +646,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B4F588AF2BC3F13B0094E7CC /* Build configuration list for PBXProject "VkMlApp" */ = {
+		B4F588AF2BC3F13B0094E7CC /* Build configuration list for PBXProject "Artify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4F588DC2BC3F13C0094E7CC /* Debug */,
@@ -581,7 +655,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4F588DE2BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlApp" */ = {
+		B4F588DE2BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "Artify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4F588DF2BC3F13C0094E7CC /* Debug */,
@@ -590,7 +664,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4F588E12BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlAppTests" */ = {
+		B4F588E12BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "ArtifyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4F588E22BC3F13C0094E7CC /* Debug */,
@@ -599,7 +673,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B4F588E42BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "VkMlAppUITests" */ = {
+		B4F588E42BC3F13C0094E7CC /* Build configuration list for PBXNativeTarget "ArtifyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4F588E52BC3F13C0094E7CC /* Debug */,
