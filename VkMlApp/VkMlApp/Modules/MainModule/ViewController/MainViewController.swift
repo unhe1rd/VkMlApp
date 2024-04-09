@@ -44,8 +44,8 @@ private extension MainViewController {
         setupMainImageView()
         setupFaqButton()
         
-        setupPhotosButton()
         setupMagicButton()
+        setupPhotosButton()
         setupCameraButton()
     }
     
@@ -116,6 +116,34 @@ private extension MainViewController {
         output.didPressFaqButton()
     }
     
+    // MARK: MagicButton
+    func setupMagicButton(){
+        view.addSubview(magicButton)
+        magicButton.translatesAutoresizingMaskIntoConstraints = false
+        magicButton.addTarget(self, action: #selector(didPressMagicButton), for: .touchUpInside)
+        let imageName = ImageConstants.magicImageName
+        let buttonColor = ColorsConstants.magicButtonColor
+        let symbolPointSize: CGFloat = 64
+        if let originalImage = UIImage(systemName: imageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            magicButton.setImage(symbolImage, for: .normal)
+            magicButton.tintColor = buttonColor
+        }
+        
+        let buttonSize:CGFloat = view.frame.width / 4
+        NSLayoutConstraint.activate([
+            magicButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 128),
+            magicButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            magicButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            magicButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    @objc func didPressMagicButton(){
+        print(#function)
+    }
+    
     // MARK: PhotosButton
     func setupPhotosButton(){
         view.addSubview(photosButton)
@@ -133,7 +161,7 @@ private extension MainViewController {
         
         let buttonSize:CGFloat = view.frame.width / 8
         NSLayoutConstraint.activate([
-            photosButton.topAnchor.constraint(equalTo: mainHeaderLaber.topAnchor),
+            photosButton.centerYAnchor.constraint(equalTo: magicButton.centerYAnchor),
             photosButton.heightAnchor.constraint(equalToConstant: buttonSize),
             photosButton.widthAnchor.constraint(equalToConstant: buttonSize)
         ])
@@ -143,14 +171,31 @@ private extension MainViewController {
         print(#function)
     }
     
-    // MARK: MagicButton
-    func setupMagicButton(){
-        
-    }
-    
     // MARK: CameraButton
     func setupCameraButton(){
+        view.addSubview(cameraButton)
+        cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraButton.addTarget(self, action: #selector(didPressCameraButton), for: .touchUpInside)
+        let imageName = ImageConstants.cameraImageName
+        let buttonColor = ColorsConstants.cameraButtonColor
+        let symbolPointSize: CGFloat = 32
+        if let originalImage = UIImage(systemName: imageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            cameraButton.setImage(symbolImage, for: .normal)
+            cameraButton.tintColor = buttonColor
+        }
         
+        let buttonSize:CGFloat = view.frame.width / 8
+        NSLayoutConstraint.activate([
+            cameraButton.centerYAnchor.constraint(equalTo: magicButton.centerYAnchor),
+            cameraButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            cameraButton.widthAnchor.constraint(equalToConstant: buttonSize),
+        ])
+    }
+    
+    @objc func didPressCameraButton(){
+        print(#function)
     }
 }
 
