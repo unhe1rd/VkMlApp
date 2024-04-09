@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct FaqView: View {
+    let magicImage = ImageConstants.magicImageName
+    let photoImage = ImageConstants.photosImageName
+    let cameraImage = ImageConstants.cameraImageName
     var body: some View {
         VStack(alignment: .center, spacing: 32){
             VStack(alignment:.leading, spacing: 16){
@@ -16,9 +19,9 @@ struct FaqView: View {
                     .font(.custom("AmericanTypewriter", size: 24))
                 Text("Artify - мобильное приложение для создания аниме версии вашей фотографии!")
                     .font(.custom("AmericanTypewriter", size: 24))
-                ImageView(imageName: "wand.and.stars", text: "- Создать аниме версию фото")
-                ImageView(imageName: "photo.fill.on.rectangle.fill", text: "- Выбрать фото из галереи")
-                ImageView(imageName: "camera.viewfinder", text: "- Сделать фото")
+                ImageView(imageName: magicImage, text: "- Создать аниме версию фото")
+                ImageView(imageName: photoImage, text: "- Выбрать фото из галереи")
+                ImageView(imageName: cameraImage, text: "- Сделать фото")
             }
             .padding(.top, 64)
             .padding(16)

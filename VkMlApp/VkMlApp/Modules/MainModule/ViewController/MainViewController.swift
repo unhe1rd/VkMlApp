@@ -14,6 +14,9 @@ final class MainViewController: UIViewController {
     private let mainHeaderLaber = UILabel()
     private let mainImageView = UIImageView()
     private let faqButton = UIButton()
+    private let photosButton = UIButton()
+    private let magicButton = UIButton()
+    private let cameraButton = UIButton()
     
     init(output: MainViewOutput) {
         self.output = output
@@ -35,17 +38,21 @@ final class MainViewController: UIViewController {
 
 private extension MainViewController {
     func setupUI(){
-        view.backgroundColor = Constants.backgroundColor
+        view.backgroundColor = ColorsConstants.backgroundColor
         setupNavigationController()
         setupMainHeaderView()
         setupMainImageView()
         setupFaqButton()
+        
+        setupPhotosButton()
+        setupMagicButton()
+        setupCameraButton()
     }
     
     func setupNavigationController(){
         let backButton = UIBarButtonItem()
         backButton.title = ""
-        backButton.tintColor = Constants.backButtonColor
+        backButton.tintColor = ColorsConstants.backButtonColor
         navigationItem.backBarButtonItem = backButton
     }
     
@@ -68,8 +75,8 @@ private extension MainViewController {
         view.addSubview(mainImageView)
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         mainImageView.layer.cornerRadius = 16
-        mainImageView.tintColor = Constants.imageColor
-        mainImageView.backgroundColor = Constants.viewColor
+        mainImageView.tintColor = ColorsConstants.imageColor
+        mainImageView.backgroundColor = ColorsConstants.viewColor
         mainImageView.alpha = 0.7
         
         let imageViewSize = view.frame.width - 32
@@ -81,17 +88,17 @@ private extension MainViewController {
         ])
     }
     
+    // MARK: FaqButton
     func setupFaqButton(){
         view.addSubview(faqButton)
         faqButton.translatesAutoresizingMaskIntoConstraints = false
         faqButton.addTarget(self, action: #selector(didPressFaqButton), for: .touchUpInside)
-        let imageName = "questionmark.circle"
-        let symbolPointSize: CGFloat = 30
-        let buttonColor = Constants.faqButtonColor
+        let imageName = ImageConstants.faqImageName
+        let symbolPointSize: CGFloat = 32
+        let buttonColor = ColorsConstants.faqButtonColor
         if let originalImage = UIImage(systemName: imageName) {
             let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
             let symbolImage = originalImage.withConfiguration(symbolConfiguration)
-            
             faqButton.setImage(symbolImage, for: .normal)
             faqButton.tintColor = buttonColor
         }
@@ -107,6 +114,43 @@ private extension MainViewController {
     
     @objc func didPressFaqButton(){
         output.didPressFaqButton()
+    }
+    
+    // MARK: PhotosButton
+    func setupPhotosButton(){
+        view.addSubview(photosButton)
+        photosButton.translatesAutoresizingMaskIntoConstraints = false
+        photosButton.addTarget(self, action: #selector(didPressPhotosButton), for: .touchUpInside)
+        let imageName = ImageConstants.photosImageName
+        let buttonColor = ColorsConstants.photosButtonColor
+        let symbolPointSize: CGFloat = 32
+        if let originalImage = UIImage(systemName: imageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            photosButton.setImage(symbolImage, for: .normal)
+            photosButton.tintColor = buttonColor
+        }
+        
+        let buttonSize:CGFloat = view.frame.width / 8
+        NSLayoutConstraint.activate([
+            photosButton.topAnchor.constraint(equalTo: mainHeaderLaber.topAnchor),
+            photosButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            photosButton.widthAnchor.constraint(equalToConstant: buttonSize)
+        ])
+    }
+    
+    @objc func didPressPhotosButton(){
+        print(#function)
+    }
+    
+    // MARK: MagicButton
+    func setupMagicButton(){
+        
+    }
+    
+    // MARK: CameraButton
+    func setupCameraButton(){
+        
     }
 }
 
