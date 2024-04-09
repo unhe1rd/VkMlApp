@@ -21,6 +21,10 @@ final class MainPresenter {
 }
 
 extension MainPresenter: MainViewOutput {
+    func didPressPhotosButton() {
+        router.openPickerControllerFromPhotoesButton()
+    }
+    
     func didLoadView() {
         print(#function)
     }
@@ -28,10 +32,25 @@ extension MainPresenter: MainViewOutput {
     func didPressFaqButton(){
         router.openFaq()
     }
+    
+    func didPressCameraButton() {
+        router.openPickerControllerFromCameraButton()
+    }
+    
+    func didPressMagicButton(image: UIImage) {
+        if image == UIImage(named: "defaultImage") {
+            router.openAlertFromMagicButton()
+        }
+        else {
+            
+        }
+    }
 }
 
-private extension MainPresenter{
-    
+private extension MainPresenter {
+    func mlHandler(){
+        
+    }
 }
 
 extension MainPresenter: MainInteractorOutput{

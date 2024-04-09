@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainViewOutput: AnyObject {
     func didLoadView()
     func didPressFaqButton()
+    func didPressPhotosButton()
+    func didPressCameraButton()
+    func didPressMagicButton(image: UIImage)
 }
 
 protocol MainViewInput: AnyObject {
@@ -17,8 +21,10 @@ protocol MainViewInput: AnyObject {
 }
 
 protocol MainRouterInput: AnyObject {
-    func openPickerController()
+    func openPickerControllerFromPhotoesButton()
+    func openPickerControllerFromCameraButton()
     func openFaq()
+    func openAlertFromMagicButton()
 }
 
 protocol MainInteractorInput: AnyObject {

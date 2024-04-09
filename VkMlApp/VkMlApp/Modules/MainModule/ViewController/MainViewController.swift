@@ -18,6 +18,10 @@ final class MainViewController: UIViewController {
     private let magicButton = UIButton()
     private let cameraButton = UIButton()
     
+    private var photosButtonSpringConstraint = NSLayoutConstraint()
+    private var magicButtonSpringConstraint = NSLayoutConstraint()
+    private var cameraButtonSpringConstraint = NSLayoutConstraint()
+    
     init(output: MainViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +37,13 @@ final class MainViewController: UIViewController {
 
         setupUI()
         output.didLoadView()
+        
+        updateButtonConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        makeAppearButtonsAnimate()
     }
 }
 
@@ -43,7 +54,6 @@ private extension MainViewController {
         setupMainHeaderView()
         setupMainImageView()
         setupFaqButton()
-        
         setupMagicButton()
         setupPhotosButton()
         setupCameraButton()
@@ -75,9 +85,12 @@ private extension MainViewController {
         view.addSubview(mainImageView)
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         mainImageView.layer.cornerRadius = 16
+        mainImageView.layer.masksToBounds = true
         mainImageView.tintColor = ColorsConstants.imageColor
         mainImageView.backgroundColor = ColorsConstants.viewColor
         mainImageView.alpha = 0.7
+        
+        mainImageView.image = UIImage(named: "defaultImage")
         
         let imageViewSize = view.frame.width - 32
         NSLayoutConstraint.activate([
@@ -114,6 +127,7 @@ private extension MainViewController {
     
     @objc func didPressFaqButton(){
         output.didPressFaqButton()
+        updateButtonConstraints()
     }
     
     // MARK: MagicButton
@@ -131,17 +145,20 @@ private extension MainViewController {
             magicButton.tintColor = buttonColor
         }
         
+        magicButtonSpringConstraint = NSLayoutConstraint(item: magicButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+        view.addConstraint(magicButtonSpringConstraint)
         let buttonSize:CGFloat = view.frame.width / 4
         NSLayoutConstraint.activate([
             magicButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 128),
             magicButton.heightAnchor.constraint(equalToConstant: buttonSize),
             magicButton.widthAnchor.constraint(equalToConstant: buttonSize),
-            magicButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     @objc func didPressMagicButton(){
-        print(#function)
+        animateForMagicButtonTap()
+        guard let image = mainImageView.image else { return }
+        output.didPressMagicButton(image: image)
     }
     
     // MARK: PhotosButton
@@ -159,6 +176,8 @@ private extension MainViewController {
             photosButton.tintColor = buttonColor
         }
         
+        photosButtonSpringConstraint = NSLayoutConstraint(item: photosButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: -100)
+        view.addConstraint(photosButtonSpringConstraint)
         let buttonSize:CGFloat = view.frame.width / 8
         NSLayoutConstraint.activate([
             photosButton.centerYAnchor.constraint(equalTo: magicButton.centerYAnchor),
@@ -169,6 +188,7 @@ private extension MainViewController {
     
     @objc func didPressPhotosButton(){
         print(#function)
+        output.didPressPhotosButton()
     }
     
     // MARK: CameraButton
@@ -186,6 +206,8 @@ private extension MainViewController {
             cameraButton.tintColor = buttonColor
         }
         
+        cameraButtonSpringConstraint = NSLayoutConstraint(item: cameraButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 100)
+        view.addConstraint(cameraButtonSpringConstraint)
         let buttonSize:CGFloat = view.frame.width / 8
         NSLayoutConstraint.activate([
             cameraButton.centerYAnchor.constraint(equalTo: magicButton.centerYAnchor),
@@ -195,12 +217,97 @@ private extension MainViewController {
     }
     
     @objc func didPressCameraButton(){
-        print(#function)
+        output.didPressCameraButton()
+        updateButtonConstraints()
+    }
+}
+
+extension MainViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            mainImageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
 extension MainViewController: MainViewInput {
     func configure() {
         print(#function)
+    }
+}
+
+// MARK: AnimateForButtons
+private extension MainViewController{
+    func updateButtonConstraints(){
+        magicButtonSpringConstraint.constant -= view.bounds.width
+        photosButtonSpringConstraint.constant -= view.bounds.width
+        cameraButtonSpringConstraint.constant -= view.bounds.width
+    }
+    
+    func makeAppearButtonsAnimate(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut){
+            self.cameraButtonSpringConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut){
+            self.photosButtonSpringConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveEaseOut){
+            self.magicButtonSpringConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func animateForMagicButtonTap(){
+        let emitterLayer = CAEmitterLayer()
+        emitterLayer.emitterPosition = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        emitterLayer.emitterShape = .point
+        
+        let cell = CAEmitterCell()
+        cell.contents = UIImage(named: "animate")?.cgImage
+        cell.birthRate = 1
+        cell.lifetime = 1
+        cell.velocity = 1
+        cell.scale = CGFloat(Float.random(in: 0.45...0.7))
+        emitterLayer.emitterCells = [cell]
+        view.layer.addSublayer(emitterLayer)
+        let fadeOutAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeOutAnimation.fromValue = 1.2
+        fadeOutAnimation.toValue = 0.0
+        fadeOutAnimation.duration = 1.2
+        emitterLayer.add(fadeOutAnimation, forKey: "fadeOut")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            emitterLayer.removeFromSuperlayer()
+        }
+        
+        let bounds = magicButton.bounds
+        guard let imageFrame = magicButton.imageView?.frame else {
+            return
+        }
+        UIView.animate(
+            withDuration: 1,
+            delay: 0,
+            usingSpringWithDamping: 0.2,
+            initialSpringVelocity: 10,
+            options: .curveEaseInOut){
+                self.magicButton.bounds = CGRect(
+                    x: bounds.origin.x - 30,
+                    y: bounds.origin.y,
+                    width: bounds.width + 50,
+                    height: bounds.height)
+                self.magicButton.imageView?.frame = CGRect(
+                    x: imageFrame.origin.x + imageFrame.width,
+                    y: imageFrame.origin.y,
+                    width: imageFrame.width * 1.5,
+                    height: imageFrame.height * 1.5)
+            }
     }
 }
