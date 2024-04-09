@@ -17,7 +17,7 @@ protocol MainViewOutput: AnyObject {
 }
 
 protocol MainViewInput: AnyObject {
-    func configure()
+    func configure(with image: UIImage)
 }
 
 protocol MainRouterInput: AnyObject {

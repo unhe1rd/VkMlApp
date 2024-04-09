@@ -236,8 +236,8 @@ extension MainViewController: UIImagePickerControllerDelegate & UINavigationCont
 }
 
 extension MainViewController: MainViewInput {
-    func configure() {
-        print(#function)
+    func configure(with image: UIImage) {
+        mainImageView.image = image
     }
 }
 

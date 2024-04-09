@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animateImage" highlightedImage="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2Hy-Mb-7VB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" highlightedImage="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2Hy-Mb-7VB">
                                 <rect key="frame" x="0.0" y="110" width="393" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="nDe-gD-nef"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Artify  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQB-LT-Ctz">
-                                <rect key="frame" x="71" y="468" width="250" height="135.33333333333337"/>
+                                <rect key="frame" x="76" y="498.99999999999994" width="250" height="135.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="IbK-kg-cHA"/>
                                 </constraints>
@@ -34,14 +33,13 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="tintColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JQB-LT-Ctz" secondAttribute="bottom" constant="214.66666666666663" id="4D7-ps-exn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JQB-LT-Ctz" secondAttribute="bottom" constant="183.66666666666674" id="4D7-ps-exn"/>
                             <constraint firstItem="2Hy-Mb-7VB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QfO-OH-IDH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Hy-Mb-7VB" secondAttribute="trailing" id="Shr-o1-2e5"/>
                             <constraint firstItem="2Hy-Mb-7VB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Vfz-7b-ugR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JQB-LT-Ctz" secondAttribute="trailing" symbolic="YES" id="eFP-tc-R1O"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JQB-LT-Ctz" secondAttribute="trailing" constant="72" id="ePQ-r6-ZHe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JQB-LT-Ctz" secondAttribute="trailing" constant="67" id="ePQ-r6-ZHe"/>
                             <constraint firstItem="JQB-LT-Ctz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="oQW-li-nlZ"/>
                             <constraint firstItem="2Hy-Mb-7VB" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-141" id="yBG-6u-FHO"/>
                         </constraints>
@@ -53,10 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="animateImage" width="566.33331298828125" height="370.66665649414062"/>
+        <image name="defaultImage" width="271" height="268.66665649414062"/>
         <image name="launchIcon" width="341.33334350585938" height="341.33334350585938"/>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

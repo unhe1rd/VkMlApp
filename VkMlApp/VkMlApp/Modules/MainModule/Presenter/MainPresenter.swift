@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import Vision
+import CoreML
+import UIKit
 
 final class MainPresenter {
     weak var view: MainViewInput?
@@ -25,10 +28,6 @@ extension MainPresenter: MainViewOutput {
         router.openPickerControllerFromPhotoesButton()
     }
     
-    func didLoadView() {
-        print(#function)
-    }
-    
     func didPressFaqButton(){
         router.openFaq()
     }
@@ -42,17 +41,73 @@ extension MainPresenter: MainViewOutput {
             router.openAlertFromMagicButton()
         }
         else {
-            
+            DispatchQueue.global().async {
+                self.mlHandle(imageData: image)
+            }
         }
+    }
+    
+    func didLoadView() {
+        print(#function)
     }
 }
 
 private extension MainPresenter {
-    func mlHandler(){
+    var currentTimeInMilliSeconds: Int {
+        let currentDate = Date()
+        let since1970 = currentDate.timeIntervalSince1970
+        return Int(since1970 * 1000)
+    }
+    
+    func mlHandle(imageData: UIImage?) {
+        let currentTime = currentTimeInMilliSeconds
+        print("[DEBUG] \(#line) \(currentTimeInMilliSeconds - currentTime)")
+        guard
+            let image = imageData,
+            let model = try? AnimeGANv2_512(configuration: .init()),
+            let ciImage = CIImage(image: image),
+            let visionModel = try? VNCoreMLModel(for: model.model)
+        else {
+            return
+        }
         
+        let request = VNCoreMLRequest(model: visionModel) { request, error in
+            guard
+                let results = request.results as? [VNPixelBufferObservation],
+                let pixelBuffer = results.first?.pixelBuffer
+            else {
+                return
+            }
+            let mlImage = UIImage(pixelBuffer: pixelBuffer)
+            guard let resultImage = mlImage else { return }
+            DispatchQueue.main.async{
+                self.view?.configure(with: resultImage)
+            }
+        }
+        
+        let handler = VNImageRequestHandler(ciImage: ciImage)
+        DispatchQueue.global().async {
+            do {
+                try handler.perform([request])
+            } catch {
+                print("[DEBUG] Error proccessing CoreML image \(error)")
+            }
+        }
     }
 }
 
 extension MainPresenter: MainInteractorOutput{
     
+}
+
+extension UIImage {
+    convenience init?(pixelBuffer: CVPixelBuffer) {
+        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+            return nil
+        }
+        
+        self.init(cgImage: cgImage)
+    }
 }
