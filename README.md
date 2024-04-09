@@ -1,6 +1,6 @@
 # VkMlApp
-#Тестовое задание на trainee iOS-Dev инфраструктура
-#под капотом AnimeGANv2_512 + Vision + CoreML + Viper
+# Тестовое задание на trainee iOS-Dev инфраструктура
+# под капотом AnimeGANv2_512 + Vision + CoreML + Viper
 
 
 https://github.com/unhe1rd/VkMlApp/assets/130218904/c0396406-cb8b-40d6-b75b-346b90001809
