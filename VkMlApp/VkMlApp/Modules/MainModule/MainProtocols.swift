@@ -14,6 +14,7 @@ protocol MainViewOutput: AnyObject {
     func didPressPhotosButton()
     func didPressCameraButton()
     func didPressMagicButton(image: UIImage)
+    func didPressShareButton(image: UIImage)
 }
 
 protocol MainViewInput: AnyObject {
@@ -25,6 +26,7 @@ protocol MainRouterInput: AnyObject {
     func openPickerControllerFromCameraButton()
     func openFaq()
     func openAlertFromMagicButton()
+    func openActivityViewController(with image: UIImage)
 }
 
 protocol MainInteractorInput: AnyObject {

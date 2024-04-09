@@ -20,6 +20,7 @@ enum ColorsConstants {
     static let magicButtonColor = UIColor.label
     static let photosButtonColor = UIColor.label
     static let cameraButtonColor = UIColor.label
+    static let shareButtonColor = UIColor.label
 }
 
 enum ImageConstants{
@@ -27,4 +28,5 @@ enum ImageConstants{
     static let magicImageName =  "wand.and.stars"
     static let cameraImageName = "camera.viewfinder"
     static let faqImageName = "questionmark.circle"
+    static let shareImageName = "square.and.arrow.up"
 }

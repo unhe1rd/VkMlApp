@@ -47,6 +47,10 @@ extension MainPresenter: MainViewOutput {
         }
     }
     
+    func didPressShareButton(image: UIImage) {
+        router.openActivityViewController(with: image)
+    }
+    
     func didLoadView() {
         print(#function)
     }

@@ -13,6 +13,7 @@ final class MainViewController: UIViewController {
     
     private let mainHeaderLaber = UILabel()
     private let mainImageView = UIImageView()
+    private let shareButton = UIButton()
     private let faqButton = UIButton()
     private let photosButton = UIButton()
     private let magicButton = UIButton()
@@ -37,7 +38,6 @@ final class MainViewController: UIViewController {
 
         setupUI()
         output.didLoadView()
-        
         updateButtonConstraints()
     }
     
@@ -54,6 +54,7 @@ private extension MainViewController {
         setupMainHeaderView()
         setupMainImageView()
         setupFaqButton()
+        setupShareButton()
         setupMagicButton()
         setupPhotosButton()
         setupCameraButton()
@@ -128,6 +129,36 @@ private extension MainViewController {
     @objc func didPressFaqButton(){
         output.didPressFaqButton()
         updateButtonConstraints()
+    }
+    
+    func setupShareButton(){
+        view.addSubview(shareButton)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.addTarget(self, action: #selector(didPressShareButton), for: .touchUpInside)
+        let imageName = ImageConstants.shareImageName
+        let symbolPointSize: CGFloat = 32
+        let buttonColor = ColorsConstants.shareButtonColor
+        if let originalImage = UIImage(systemName: imageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            shareButton.setImage(symbolImage, for: .normal)
+            shareButton.tintColor = buttonColor
+        }
+        
+        let buttonSize:CGFloat = 64
+        NSLayoutConstraint.activate([
+            shareButton.topAnchor.constraint(equalTo: mainHeaderLaber.topAnchor),
+            shareButton.leadingAnchor.constraint(equalTo: mainHeaderLaber.leadingAnchor),
+            shareButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            shareButton.widthAnchor.constraint(equalToConstant: buttonSize)
+        ])
+    }
+    
+    @objc func didPressShareButton(){
+        guard let image = mainImageView.image else {
+            return
+        }
+        output.didPressShareButton(image: image)
     }
     
     // MARK: MagicButton

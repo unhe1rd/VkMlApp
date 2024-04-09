@@ -43,4 +43,9 @@ extension MainRouter: MainRouterInput {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         viewController?.present(alert, animated: true, completion: nil)
     }
+    
+    func openActivityViewController(with image: UIImage){
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        viewController?.present(activityViewController, animated: true, completion: nil)
+    }
 }
