@@ -12,9 +12,10 @@ struct FaqView: View {
     let magicImage = ImageConstants.magicImageName
     let photoImage = ImageConstants.photosImageName
     let cameraImage = ImageConstants.cameraImageName
+    let shareImage = ImageConstants.shareImageName
     var body: some View {
         VStack(alignment: .center, spacing: 32){
-            VStack(alignment:.leading, spacing: 16){
+            VStack(alignment:.leading, spacing: 24){
                 Text("FAQ")
                     .font(.custom("AmericanTypewriter", size: 24))
                 Text("Artify - мобильное приложение для создания аниме версии вашей фотографии!")
@@ -22,6 +23,7 @@ struct FaqView: View {
                 ImageView(imageName: magicImage, text: "- Создать аниме версию фото")
                 ImageView(imageName: photoImage, text: "- Выбрать фото из галереи")
                 ImageView(imageName: cameraImage, text: "- Сделать фото")
+                ImageView(imageName: shareImage, text: "-  Поделиться фото")
             }
             .padding(.top, 64)
             .padding(16)
@@ -42,6 +44,7 @@ struct ImageView: View {
             Text(text)
                 .font(.custom("AmericanTypewriter", size: 16))
         }
+        .padding(.top, 16)
     }
 }
 
