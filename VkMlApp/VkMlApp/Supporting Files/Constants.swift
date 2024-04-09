@@ -12,4 +12,6 @@ enum Constants {
     static let backgroundColor = UIColor.systemBackground
     static let viewColor = UIColor.label
     static let imageColor = UIColor.systemBackground
+    static let faqButtonColor = UIColor.label
+    static let backButtonColor = UIColor.label
 }

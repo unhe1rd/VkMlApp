@@ -24,6 +24,10 @@ extension MainPresenter: MainViewOutput {
     func didLoadView() {
         print(#function)
     }
+    
+    func didPressFaqButton(){
+        router.openFaq()
+    }
 }
 
 private extension MainPresenter{

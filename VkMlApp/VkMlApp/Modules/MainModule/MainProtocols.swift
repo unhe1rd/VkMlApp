@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainViewOutput: AnyObject {
     func didLoadView()
+    func didPressFaqButton()
 }
 
 protocol MainViewInput: AnyObject {
@@ -16,7 +17,8 @@ protocol MainViewInput: AnyObject {
 }
 
 protocol MainRouterInput: AnyObject {
-    func openViewController()
+    func openPickerController()
+    func openFaq()
 }
 
 protocol MainInteractorInput: AnyObject {

@@ -36,21 +36,17 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
     func setupUI(){
         view.backgroundColor = Constants.backgroundColor
-        
+        setupNavigationController()
         setupMainHeaderView()
-        setupFaqButton()
         setupMainImageView()
+        setupFaqButton()
     }
     
-    func setupFaqButton(){
-        view.addSubview(faqButton)
-        faqButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        
-        NSLayoutConstraint.activate([
-            faqButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            faqButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
-            faqButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -16),
-        ])
+    func setupNavigationController(){
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        backButton.tintColor = Constants.backButtonColor
+        navigationItem.backBarButtonItem = backButton
     }
     
     func setupMainHeaderView(){
@@ -62,10 +58,12 @@ private extension MainViewController {
         
         NSLayoutConstraint.activate([
             mainHeaderLaber.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            mainHeaderLaber.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
-            mainHeaderLaber.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -16),
+            mainHeaderLaber.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            mainHeaderLaber.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            mainHeaderLaber.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
+    
     func setupMainImageView(){
         view.addSubview(mainImageView)
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +79,34 @@ private extension MainViewController {
             mainImageView.heightAnchor.constraint(equalToConstant: imageViewSize),
             mainImageView.widthAnchor.constraint(equalToConstant: imageViewSize)
         ])
+    }
+    
+    func setupFaqButton(){
+        view.addSubview(faqButton)
+        faqButton.translatesAutoresizingMaskIntoConstraints = false
+        faqButton.addTarget(self, action: #selector(didPressFaqButton), for: .touchUpInside)
+        let imageName = "questionmark.circle"
+        let symbolPointSize: CGFloat = 30
+        let buttonColor = Constants.faqButtonColor
+        if let originalImage = UIImage(systemName: imageName) {
+            let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: symbolPointSize)
+            let symbolImage = originalImage.withConfiguration(symbolConfiguration)
+            
+            faqButton.setImage(symbolImage, for: .normal)
+            faqButton.tintColor = buttonColor
+        }
+        
+        let buttonSize:CGFloat = 64
+        NSLayoutConstraint.activate([
+            faqButton.topAnchor.constraint(equalTo: mainHeaderLaber.topAnchor),
+            faqButton.trailingAnchor.constraint(equalTo: mainHeaderLaber.trailingAnchor),
+            faqButton.heightAnchor.constraint(equalToConstant: buttonSize),
+            faqButton.widthAnchor.constraint(equalToConstant: buttonSize)
+        ])
+    }
+    
+    @objc func didPressFaqButton(){
+        output.didPressFaqButton()
     }
 }
 
