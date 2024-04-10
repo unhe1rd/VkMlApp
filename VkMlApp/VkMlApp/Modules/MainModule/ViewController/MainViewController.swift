@@ -74,7 +74,7 @@ private extension MainViewController {
         mainHeaderLaber.text = "Artify"
         
         NSLayoutConstraint.activate([
-            mainHeaderLaber.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            mainHeaderLaber.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainHeaderLaber.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mainHeaderLaber.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             mainHeaderLaber.heightAnchor.constraint(equalToConstant: 64)
@@ -95,7 +95,7 @@ private extension MainViewController {
         let imageViewSize = view.frame.width - 32
         NSLayoutConstraint.activate([
             mainImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainImageView.topAnchor.constraint(equalTo: mainHeaderLaber.bottomAnchor, constant: 16),
+            mainImageView.topAnchor.constraint(equalTo: mainHeaderLaber.bottomAnchor, constant: 64),
             mainImageView.heightAnchor.constraint(equalToConstant: imageViewSize),
             mainImageView.widthAnchor.constraint(equalToConstant: imageViewSize)
         ])
@@ -179,7 +179,7 @@ private extension MainViewController {
         view.addConstraint(magicButtonSpringConstraint)
         let buttonSize:CGFloat = view.frame.width / 4
         NSLayoutConstraint.activate([
-            magicButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 128),
+            magicButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             magicButton.heightAnchor.constraint(equalToConstant: buttonSize),
             magicButton.widthAnchor.constraint(equalToConstant: buttonSize),
         ])
