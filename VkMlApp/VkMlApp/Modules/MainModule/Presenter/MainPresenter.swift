@@ -24,6 +24,23 @@ final class MainPresenter {
 }
 
 extension MainPresenter: MainViewOutput {
+    func didPressMagicButton(image: UIImage) {
+        if image == UIImage(named: "defaultImage") {
+            router.openAlertFromMagicButton()
+            view?.showMagicButton()
+        }
+        else {
+            DispatchQueue.global().async {
+                self.mlHandle(imageData: image){
+                    DispatchQueue.main.async {
+                        print("Я показываю кнопку на главном потоке")
+                        self.view?.showMagicButton()
+                    }
+                }
+            }
+        }
+    }
+    
     func didPressPhotosButton() {
         router.openPickerControllerFromPhotoesButton()
     }
@@ -34,17 +51,6 @@ extension MainPresenter: MainViewOutput {
     
     func didPressCameraButton() {
         router.openPickerControllerFromCameraButton()
-    }
-    
-    func didPressMagicButton(image: UIImage) {
-        if image == UIImage(named: "defaultImage") {
-            router.openAlertFromMagicButton()
-        }
-        else {
-            DispatchQueue.global().async {
-                self.mlHandle(imageData: image)
-            }
-        }
     }
     
     func didPressShareButton(image: UIImage) {
@@ -63,7 +69,8 @@ private extension MainPresenter {
         return Int(since1970 * 1000)
     }
     
-    func mlHandle(imageData: UIImage?) {
+    func mlHandle(imageData: UIImage? , completion: @escaping () -> Void){
+        print(#function)
         let currentTime = currentTimeInMilliSeconds
         print("[DEBUG] \(#line) \(currentTimeInMilliSeconds - currentTime)")
         guard
@@ -86,6 +93,7 @@ private extension MainPresenter {
             guard let resultImage = mlImage else { return }
             DispatchQueue.main.async{
                 self.view?.configure(with: resultImage)
+                completion()
             }
         }
         

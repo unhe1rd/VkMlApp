@@ -10,7 +10,6 @@ import UIKit
 final class MainViewController: UIViewController {
     //View Properties
     private let output: MainViewOutput
-    
     private let mainHeaderLaber = UILabel()
     private let mainImageView = UIImageView()
     private let shareButton = UIButton()
@@ -18,7 +17,6 @@ final class MainViewController: UIViewController {
     private let photosButton = UIButton()
     private let magicButton = UIButton()
     private let cameraButton = UIButton()
-    
     private var photosButtonSpringConstraint = NSLayoutConstraint()
     private var magicButtonSpringConstraint = NSLayoutConstraint()
     private var cameraButtonSpringConstraint = NSLayoutConstraint()
@@ -43,6 +41,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         makeAppearButtonsAnimate()
     }
 }
@@ -188,7 +187,10 @@ private extension MainViewController {
     
     @objc func didPressMagicButton(){
         animateForMagicButtonTap()
-        guard let image = mainImageView.image else { return }
+        magicButton.isEnabled = false
+        guard let image = mainImageView.image else {
+            return
+        }
         output.didPressMagicButton(image: image)
     }
     
@@ -218,7 +220,6 @@ private extension MainViewController {
     }
     
     @objc func didPressPhotosButton(){
-        print(#function)
         output.didPressPhotosButton()
     }
     
@@ -268,7 +269,16 @@ extension MainViewController: UIImagePickerControllerDelegate & UINavigationCont
 
 extension MainViewController: MainViewInput {
     func configure(with image: UIImage) {
-        mainImageView.image = image
+        DispatchQueue.main.async {
+            self.mainImageView.image = image
+        }
+    }
+    
+    func showMagicButton(){
+        print(#function)
+        DispatchQueue.main.async {
+            self.magicButton.isEnabled = true
+        }
     }
 }
 

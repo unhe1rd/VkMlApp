@@ -19,6 +19,7 @@ protocol MainViewOutput: AnyObject {
 
 protocol MainViewInput: AnyObject {
     func configure(with image: UIImage)
+    func showMagicButton()
 }
 
 protocol MainRouterInput: AnyObject {
