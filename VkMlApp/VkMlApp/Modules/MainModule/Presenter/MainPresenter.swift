@@ -33,7 +33,7 @@ extension MainPresenter: MainViewOutput {
             DispatchQueue.global().async {
                 self.mlHandle(imageData: image){
                     DispatchQueue.main.async {
-                        print("Я показываю кнопку на главном потоке")
+                        print("[DEBUG] Show magic button \(self.currentTimeInMilliSeconds)")
                         self.view?.showMagicButton()
                     }
                 }
@@ -93,6 +93,7 @@ private extension MainPresenter {
             guard let resultImage = mlImage else { return }
             DispatchQueue.main.async{
                 self.view?.configure(with: resultImage)
+                print("[DEBUG] configure resultImage \(self.currentTimeInMilliSeconds)")
                 completion()
             }
         }
